@@ -5,6 +5,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 const logger = require('winston');
 
+
 const feathers = require('@feathersjs/feathers');
 const configuration = require('@feathersjs/configuration');
 const express = require('@feathersjs/express');
@@ -30,7 +31,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(favicon(path.join(app.get('public'), 'favicon.ico')));
 // Host the public folder
-app.use('/', express.static(app.get('../client/build/static')));
+app.use('/', express.static(path.resolve(__dirname, '../client/build')));
 
 // Set up Plugins and providers
 app.configure(express.rest());
