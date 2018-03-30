@@ -27,13 +27,15 @@ const Search = props =>
                 <input onChange={props.handleEndYearChange} type="text" className="form-control" id="end-year" />
               </div>
               <button onClick={props.handleFormSubmit} type="submit" className="btn btn-primary">Submit</button>
+
+              <button className="btn btn-primary" onClick={() => props.handleSaveButton(props._id)}>Save</button>
             </form>
           </div>
         </div>
       </div>
     </div>
 
-    <br/><br/>
+    <br /><br />
 
     <div className="row">
       <div className="col-lg-12">
@@ -46,12 +48,25 @@ const Search = props =>
             </h3>
           </div>
           <div className="panel-body">
-            {props.renderArticles()}
+
+            {/* <ul className="list-group">
+              {props.articles.map(article => (
+                <li className="list-group-item" key={article.id}>
+                  <p>{props.article}</p>
+                </li>
+              ))}
+            </ul> */}
+
+            {console.log(props.articles)}
+
+
+
+
           </div>
         </div>
       </div>
     </div>
-    <br/><br/>
+    <br /><br />
   </div>
 
 

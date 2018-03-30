@@ -7,15 +7,18 @@ const api = {
         return axios.get(queryURL)
     },
     getArticle: function(){
-        return axios.get("/saved")
+        return axios.get("/article")
     },
-    getArticle: function(articleObj){
-        return axios.post("/saved", articleObj)
+    saveArticle: function(articleObj){
+        return axios.post("/article", articleObj)
     },
     deleteArticle: function(id){
-        return axios.delete(`/save/${id}`)
-    }
+        return axios.delete(`/article/${id}`)
+    },
 
+    postArticle: function(title, date, url) {
+        return axios.post("/article", title, date, url)
+    }
 }
 
 export default api;
