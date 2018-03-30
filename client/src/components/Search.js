@@ -1,5 +1,6 @@
 import React from "react";
 
+
 const Search = props =>
   <div className="container">
     <div className="row">
@@ -49,15 +50,23 @@ const Search = props =>
           </div>
           <div className="panel-body">
 
-            {/* <ul className="list-group">
+
+            <ul className="list-group">
               {props.articles.map(article => (
-                <li className="list-group-item" key={article.id}>
-                  <p>{props.article}</p>
+                <li className="list-group-item" item={article.id} key={article._id}>
+                  <h4>{article.headline.main}</h4>
+                  <p>{article.snippet}</p>
+                  <p>Written by: {article.byline.original}</p>
+                    <a href={article.web_url} target="_blank">
+                        <button className="btn btn-default ">View Article</button>
+                    </a>
+                    <button className="btn btn-primary" onClick={() => props.handleSaveButton(article._id)}>Save</button>
+
                 </li>
               ))}
-            </ul> */}
+            </ul>
 
-            {console.log(props.articles)}
+            {props.articles.map(article => (console.log(article.headline.main)))}
 
 
 

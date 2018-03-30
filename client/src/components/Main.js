@@ -17,6 +17,7 @@ class Main extends Component {
   // When the component mounts, get a list of all saved articles and update this.state.saved
   componentDidMount() {
     this.getSavedArticles()
+    console.log(this.getSavedArticles())
   }
 
   // Method for getting saved articles (all articles) from the db
@@ -53,7 +54,7 @@ class Main extends Component {
 
 
   handleSaveButton = (id) => {
-    id.preventDefault()
+    console.log("id: ", id)
     const findArticleByID = this.state.articles.find((el) => el._id === id);
     console.log("findArticleByID: ", findArticleByID);
     const newSave = { title: findArticleByID.headline.main, date: findArticleByID.pub_date, url: findArticleByID.web_url };
@@ -83,7 +84,10 @@ class Main extends Component {
             handleStartYearChange={this.handleStartYearChange}
             handleEndYearChange={this.handleEndYearChange}
             handleFormSubmit={this.handleFormSubmit}
-            renderArticles={this.renderArticles}
+            handleSaveButton={this.handleSaveButton}
+
+            articles={this.state.articles}
+
           />
 
           <div className="container">
@@ -99,7 +103,11 @@ class Main extends Component {
                   <div className="panel-body">
                     <ul className="list-group">
        
+                      <Saved
+                      savedArticle={this.state.saved.data}
+                      handleDeleteButton={this.handleDeleteButton}
 
+                      />
 
                     </ul>
                   </div>
