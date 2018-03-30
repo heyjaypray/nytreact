@@ -29,7 +29,7 @@ const Search = props =>
               </div>
               <button onClick={props.handleFormSubmit} type="submit" className="btn btn-primary">Submit</button>
 
-              <button className="btn btn-primary" onClick={() => props.handleSaveButton(props._id)}>Save</button>
+         
             </form>
           </div>
         </div>
