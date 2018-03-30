@@ -22,6 +22,7 @@
     "yarn": ">= 0.18.0"
   },
   "scripts": {
+    "install": "cd client && npm install && npm run build",
     "test": "yarn run eslint && yarn run mocha",
     "eslint": "eslint src/. test/. --config .eslintrc.json",
     "start": "node src/",
